@@ -7,22 +7,40 @@
   </head>
   <body>
     <script href="script.js">
-
-      let playerChoice = (prompt("what is your choice : ")).toLowerCase()
+      let playerChoice = prompt("what is your choice : ").toLowerCase();
 
       function getComputerChoice() {
         let choice = new Array(3);
         choice = ["rock", "paper", "scissor"];
         let result = Math.floor(Math.random() * 3);
-        return choice[result]
-        
+        return choice[result];
       }
 
       let computerResult = getComputerChoice();
-      console.log(playerChoice)
-      console.log(computerResult)
-      
+      console.log(playerChoice);
+      console.log(computerResult);
 
+      function playRound(playerChoice, computerResult) {
+        if (playerChoice === computerResult) {
+          return `it is a draw`;
+        } else if (playerChoice === "rock" && computerResult === "scissor") {
+          return "you win computer choice";
+        } else if (playerChoice === "scissor" && computerResult === "paper") {
+          return "you win";
+        } else if (playerChoice === "paper" && computerResult === "rock") {
+          return `you win computer choice ${computerResult}`;
+        } else if (computerResult === "paper" && playerChoice === "rock") {
+          return "computer win";
+        } else if (computerResult === "scissor" && playerChoice === "paper") {
+          return "computer win";
+        } else if (computerResult === "rock" && playerChoice === "scissor") {
+          return "computer win";
+        } else {
+          return "und determined result we are working on it ";
+        }
+      }
+
+      console.log(playRound());
     </script>
   </body>
 </html>
