@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script href="script.js">
-      let playerChoice = prompt("what is your choice : ").toLowerCase();
 
-      function getComputerChoice() {
-        let choice = new Array(3);
-        choice = ["rock", "paper", "scissor"];
-        let result = Math.floor(Math.random() * 3);
-        return choice[result];
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
 
-      let computerResult = getComputerChoice();
-      console.log(playerChoice);
-      console.log(computerResult);
+<body>
+  <div class="game-body">
+    <h1>Rock Paper and Scissors</h1>
+    <div class="p-sec">
+    <p>Welcome : select your choice from the options below and the computer will also make a selection. After you choose the result will be displayed, and the winner will be shown
+    </div>
+    </p>
 
-      function playRound(playerChoice, computerResult) {
-        if (playerChoice === computerResult) {
-          return `it is a draw`;
-        } else if (playerChoice === "rock" && computerResult === "scissor") {
-          return "you win computer choice";
-        } else if (playerChoice === "scissor" && computerResult === "paper") {
-          return "you win";
-        } else if (playerChoice === "paper" && computerResult === "rock") {
-          return `you win computer choice ${computerResult}`;
-        } else if (computerResult === "paper" && playerChoice === "rock") {
-          return "computer win";
-        } else if (computerResult === "scissor" && playerChoice === "paper") {
-          return "computer win";
-        } else if (computerResult === "rock" && playerChoice === "scissor") {
-          return "computer win";
-        } else {
-          return "und determined result we are working on it ";
-        }
-      }
+    <div class="game-section">
+      <div class="player">
+        <h4>Player</h3>
+          <div class="btn-player">
+            <button class="btn-plye paper" name="paper"><img src="images/paper2.png"></button>
+            <button class="btn-plye rock" name="rock"><img src="images/rock2.png"></button>
+            <button class="btn-plye scissor" name="scissor"><img src="images/playerScissor.png"></button>
+          </div>
+          <span class="player-cs"></span>
 
-      console.log(playRound());
-    </script>
-  </body>
+      </div>
+      <div class="computer">
+        <h4>Computer</h4>
+        <div class="btn-computer">
+          <button class="btn-ply paper" disabled><img src="images/paper2.png"></button>
+          <button class="btn-ply rock" disabled><img src="images/computerRock.png"></button>
+          <button class="btn-ply scissor" disabled><img src="images/scissor2.png"></button>
+        </div>
+        <span class="computer-cs"></span>
+
+
+      </div>
+      <div>
+      </div>
+    </div>
+    <span class="winner-ds"></span>
+
+  </div>
+</body>
+
 </html>
